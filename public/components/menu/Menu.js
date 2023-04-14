@@ -28,6 +28,8 @@ class Menu{
     }
 
     render(){
+        const menuAndContent = document.createElement("div")
+        menuAndContent.setAttribute("class", "menuAndContent")
         const menu = document.createElement("div")
         const mainButtons = document.createElement("div")
         const sideButtons = document.createElement("div")
@@ -47,11 +49,11 @@ class Menu{
         const logoutImage = document.createElement("img")
         logoutImage.setAttribute("src", "../../images/layoutDetails/logout.svg")
         logout.appendChild(logoutImage)
-        menu.setAttribute("id", "menu")
-        battle.setAttribute("id", "battle")
-        forge.setAttribute("id", "forge")
-        wardrobe.setAttribute("id", "wardrobe")
-        logout.setAttribute("id", "logout")
+        menu.setAttribute("class", "button-86")
+        battle.setAttribute("class", "button-86")
+        forge.setAttribute("class", "button-86")
+        wardrobe.setAttribute("class", "button-86")
+        logout.setAttribute("class", "button-86")
         battle.onclick = () => this.renderBattle(this.currentUser);
         forge.onclick = () => this.renderForge(this.currentUser);
         wardrobe.onclick = () => this.renderWardrobe(this.currentUser);

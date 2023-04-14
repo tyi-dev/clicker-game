@@ -6,10 +6,11 @@ class Registration{
     onNewAccountClick(){
         const mainPage = document.getElementById("container")
         mainPage.innerHTML = ""
-        mainPage.innerHTML = `<label>Input your name <input id="nameInput"></label>
-                              <label>Input your surname<input id="surnameInput"></label>
+        mainPage.innerHTML = `<div class = "defaultContainerStyles">
+                              <label>Input your name:<input id="nameInput"></label>
+                              <label>Input your surname:<input id="surnameInput"></label>
                               <label>Create you nickname!<input id="nicknameInput"></label>
-                              <button id="saveButton">Save</button>`
+                              <button id="saveButton">Save</button></div>>`
         const nameInput = document.getElementById('nameInput');
         const surnameInput = document.getElementById('surnameInput');
         const nicknameInput = document.getElementById('nicknameInput');
@@ -46,6 +47,7 @@ class Registration{
 
     newAccount(){
         const newAccountElement = document.createElement("button")
+        newAccountElement.setAttribute("class", "user button-86")
         newAccountElement.innerHTML = `<img src = "../../images/layoutDetails/addNewAccount.svg" alt = "newAccount">`
         newAccountElement.onclick = () => this.onNewAccountClick()
         return newAccountElement
@@ -64,22 +66,22 @@ class Registration{
         menu.renderBattle()
     }
     renderOneUser(user){
-        const button = document.createElement('button');
-        button.onclick = () => this.onUserElementClick(user);
-        button.innerHTML = `<span>${user.inGameName}, </span>
+        const loginButton = document.createElement('button');
+        loginButton.setAttribute("class", "user button-86")
+        loginButton.onclick = () => this.onUserElementClick(user);
+        loginButton.innerHTML = `<span>${user.inGameName}, </span>
                             <span>Stage ${user.stage}</span>`
         const mainPage = document.getElementById("container")
-        mainPage.appendChild(button)
+        mainPage.appendChild(loginButton)
     }
     renderAllUsers(){
         getUsers().then((response) => {
             let users = response.data
-            console.log(users)
             for(let i = 0; i < users.length; i++){
                 registrationPage.renderOneUser(users[i])
             }
         }, (error) => {
-            usersArray = []
+            console.log(error)
         });
         const mainPage = document.getElementById("container")
         mainPage.appendChild(registrationPage.newAccount())
@@ -88,5 +90,6 @@ class Registration{
 }
 const registrationPage = new Registration()
 registrationPage.renderAllUsers()
+
 
 

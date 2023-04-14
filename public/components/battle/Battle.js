@@ -66,6 +66,7 @@ class Battle{
         this.resetEnemyHP()
         enemyHPCounter.innerHTML = `HP: ${this.enemyHP.hp}`
         const enemyButton = document.createElement("button")
+        enemyButton.setAttribute("class", "button-86")
         enemyButton.setAttribute("id", "enemyHitButton")
         enemyButton.innerHTML = `<img src = "../../images/enemiesSkinPacks/${this.user.skinPack}/LVL${this.user.lvl}.svg" alt = "enemy">`
         enemyButton.onclick = () => this.onEnemyClick()

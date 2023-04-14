@@ -1,3 +1,8 @@
+.menuAndContent{
+    display: flex;
+    flex-direction: row;
+}
+
 #menu{
     display: flex;
     flex-direction: column;
