@@ -1,0 +1,19 @@
+#menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70px;
+    border-right: solid 2px black;
+    padding: 30px;
+    height: 100%;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+
