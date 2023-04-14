@@ -6,7 +6,7 @@ class Registration{
     onNewAccountClick(){
         const mainPage = document.getElementById("container")
         mainPage.innerHTML = ""
-        mainPage.innerHTML = `<div class = "defaultContainerStyles">
+        mainPage.innerHTML = `<div class = "containerNewUser">
                               <label>Input your name:<input id="nameInput"></label>
                               <label>Input your surname:<input id="surnameInput"></label>
                               <label>Create you nickname!<input id="nicknameInput"></label>

@@ -19,6 +19,7 @@ class Battle{
     goToNewLevel(){
         this.user.lvl += 1
         if (this.user.lvl > 5){
+            alert('Stage complete! You are rewarded with Level Up Point! Progress saved!')
             this.user.upgradePoints += 1
             this.user.lvl = 1
             this.user.stage += 1
@@ -50,28 +51,31 @@ class Battle{
         }else{
             const enemyHPCounter = document.getElementById("enemyHPCounter")
             this.enemyHP.hp -= this.user.damagePerClick
-            enemyHPCounter.innerHTML = `${this.enemyHP.hp - this.user.damagePerClick}`
+            enemyHPCounter.innerHTML = `HP: ${this.enemyHP.hp - this.user.damagePerClick}`
             const totalDMGCounter = document.getElementById("totalDMGCounter")
-            totalDMGCounter.innerHTML = `Total damage: ${this.user.totalDMGDealt}`
+            totalDMGCounter.innerHTML = `Total Damage: ${this.user.totalDMGDealt}`
         }
     }
 
     render(){
         const enemyHolder = document.createElement("div")
         const enemyHPCounter = document.createElement("div")
-        enemyHPCounter.setAttribute("id", "enemyHPCounter")
         const totalDMGCounter = document.createElement("div")
+        const statsHolder = document.createElement("div")
+        statsHolder.setAttribute("class", "statsHolder")
+        enemyHPCounter.setAttribute("id", "enemyHPCounter")
         totalDMGCounter.setAttribute("id", "totalDMGCounter")
         totalDMGCounter.innerHTML = `Total Damage: ${this.user.totalDMGDealt}`
         this.resetEnemyHP()
         enemyHPCounter.innerHTML = `HP: ${this.enemyHP.hp}`
         const enemyButton = document.createElement("button")
-        enemyButton.setAttribute("class", "button-86")
+        enemyButton.setAttribute("class", "button-86 enemyButton")
         enemyButton.setAttribute("id", "enemyHitButton")
         enemyButton.innerHTML = `<img src = "../../images/enemiesSkinPacks/${this.user.skinPack}/LVL${this.user.lvl}.svg" alt = "enemy">`
         enemyButton.onclick = () => this.onEnemyClick()
-        enemyHolder.appendChild(totalDMGCounter)
-        enemyHolder.appendChild(enemyHPCounter)
+        statsHolder.appendChild(totalDMGCounter)
+        statsHolder.appendChild(enemyHPCounter)
+        enemyHolder.appendChild(statsHolder)
         enemyHolder.appendChild(enemyButton)
         return enemyHolder
     }

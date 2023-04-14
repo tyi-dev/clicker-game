@@ -1,0 +1,7 @@
+.damageStats{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    align-items: center;
+}

@@ -48,9 +48,16 @@
     background: var(--color);
     color: #fff;
 }
-.containerRegistration{
+.containerNewUser{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

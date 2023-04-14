@@ -28,8 +28,6 @@ class Menu{
     }
 
     render(){
-        const menuAndContent = document.createElement("div")
-        menuAndContent.setAttribute("class", "menuAndContent")
         const menu = document.createElement("div")
         const mainButtons = document.createElement("div")
         const sideButtons = document.createElement("div")
@@ -49,7 +47,7 @@ class Menu{
         const logoutImage = document.createElement("img")
         logoutImage.setAttribute("src", "../../images/layoutDetails/logout.svg")
         logout.appendChild(logoutImage)
-        menu.setAttribute("class", "button-86")
+        menu.setAttribute("id", "menu")
         battle.setAttribute("class", "button-86")
         forge.setAttribute("class", "button-86")
         wardrobe.setAttribute("class", "button-86")

@@ -6,7 +6,9 @@ class Forge{
         this.currentUser.upgradePoints -= 1
         this.currentUser.damagePerClick += 1
         const damageNumber = document.getElementById("damageNumberHolder")
-        damageNumber.innerHTML = this.currentUser.damagePerClick
+        damageNumber.innerHTML = `<strong>${this.currentUser.damagePerClick}</strong>`
+        const availableLVLUPPointsHolder = document.getElementById("availableLVLUPPointsHolder")
+        availableLVLUPPointsHolder.innerHTML = `<strong>${this.currentUser.upgradePoints}</strong>`
         if(this.currentUser.upgradePoints <= 0){
             const upgradeButton = document.getElementById("upgradeButton")
             upgradeButton.setAttribute("disabled", true)
@@ -22,7 +24,9 @@ class Forge{
             <img src = "../../images/layoutDetails/forgeDMG.svg" alt = "dmgIcon">
             <span>Damage per click upgrade!</span>
         `
+        damageStatsCounter.setAttribute("class", "damageStats")
         const damageUpgradeButton = document.createElement('button');
+        damageUpgradeButton.setAttribute("class", "button-86")
         damageUpgradeButton.setAttribute("id", "upgradeButton")
         if(this.currentUser.upgradePoints <= 0){
             damageUpgradeButton.setAttribute("disabled", true)
@@ -31,13 +35,24 @@ class Forge{
         damageUpgradeButton.innerHTML = `<span><img src = "../../images/layoutDetails/DMGUpgrade.svg" alt = "arrowUp"></span>`
         const damageNumberDiv = document.createElement("div")
         damageNumberDiv.innerHTML = `<span>Current damage: </span>`
+        const pointsAvailableHolder = document.createElement("div")
+        pointsAvailableHolder.innerHTML = `<span>Upgrade points: </span>`
         const damageNumberHolder = document.createElement("span")
         damageNumberHolder.setAttribute("id", "damageNumberHolder")
-        damageNumberHolder.innerHTML = this.currentUser.damagePerClick
+        damageNumberHolder.innerHTML = `<strong>${this.currentUser.damagePerClick}</strong>`
+        const availableLVLUPPointsHolder = document.createElement("span")
+        availableLVLUPPointsHolder.setAttribute("id", "availableLVLUPPointsHolder")
+        availableLVLUPPointsHolder.innerHTML = `<strong>${this.currentUser.upgradePoints}</strong>`
+        damageStatsCounter.appendChild(availableLVLUPPointsHolder)
+        pointsAvailableHolder.appendChild(availableLVLUPPointsHolder)
         damageNumberDiv.appendChild(damageNumberHolder)
+        damageStatsCounter.appendChild(damageNumberDiv)
+        damageStatsCounter.appendChild(pointsAvailableHolder)
         damageStatsCounter.appendChild(damageUpgradeButton)
+
+
         forge.appendChild(damageStatsCounter)
-        forge.appendChild(damageNumberDiv)
+
         return forge
     }
 }
